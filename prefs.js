@@ -75,19 +75,15 @@ export default class Preferences extends ExtensionPreferences {
     const actions = [
       {
         name: 'open-bug-report',
-        link: 'https://github.com/icedman/search-light/issues',
+        link: 'https://github.com/rwmicro/search-light/issues',
       },
       {
         name: 'open-readme',
-        link: 'https://github.com/icedman/search-light',
-      },
-      {
-        name: 'open-buy-coffee',
-        link: 'https://www.buymeacoffee.com/icedman',
+        link: 'https://github.com/rwmicro/search-light',
       },
       {
         name: 'open-license',
-        link: 'https://github.com/icedman/search-light/blob/master/LICENSE',
+        link: 'https://github.com/rwmicro/search-light/blob/main/LICENSE',
       },
     ];
 
@@ -118,12 +114,6 @@ export default class Preferences extends ExtensionPreferences {
     window.add(builder.get_object('general'));
     window.add(builder.get_object('appearance'));
     window.set_search_enabled(true);
-
-    if (builder.get_object('qr')) {
-      builder
-        .get_object('qr')
-        .set_from_file(`${UIFolderPath}/images/qr_icedman.png`);
-    }
 
     // builder.get_object("providers-group").visible = false;
 

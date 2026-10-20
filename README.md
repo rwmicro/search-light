@@ -3,15 +3,15 @@
   <h3 align="center">Search Light</h3>
 
   <p align="center">
-    A GNOME Shell 42+ Extension
+    A GNOME Shell Extension
     <br/>
     <br/>
   </p>
 </p>
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/icedman)
+> **Note:** the original maintainers are no longer working on this project. I ([rwmicro](https://github.com/rwmicro)) am taking it over and will keep it up to date with recent GNOME and Fedora releases. The original repository is still available at [icedman/search-light](https://github.com/icedman/search-light).
 
-![Contributors](https://img.shields.io/github/contributors/icedman/search-light?color=dark-green) ![Forks](https://img.shields.io/github/forks/icedman/search-light?style=social) ![Stargazers](https://img.shields.io/github/stars/icedman/search-light?style=social) ![Issues](https://img.shields.io/github/issues/icedman/search-light) ![License](https://img.shields.io/github/license/icedman/search-light) 
+![Contributors](https://img.shields.io/github/contributors/rwmicro/search-light?color=dark-green) ![Forks](https://img.shields.io/github/forks/rwmicro/search-light?style=social) ![Stargazers](https://img.shields.io/github/stars/rwmicro/search-light?style=social) ![Issues](https://img.shields.io/github/issues/rwmicro/search-light) ![License](https://img.shields.io/github/license/rwmicro/search-light) 
 
 ![First Release](https://raw.githubusercontent.com/icedman/search-light/main/screenshots/Screenshot%20from%202022-11-03%2011-53-28.png)
 
@@ -20,7 +20,7 @@ This is a Gnome Shell extension that takes the apps search widget out of Overvie
 
 ### Notice
 
-* Gnome 48 ready for testing
+* Supports GNOME 48, 49 and 50 (Fedora 42 to 44)
 * Gnome 47 and prior will now be numer gnome-47 branch
 * Gnome 46 port is ready for testing
 * Gnome 45 port is ready for testing
@@ -42,7 +42,7 @@ Blurred background feature requires **imagemagick** to be installed in the syste
 Manual Installation: 
 - Clone this repo
 ```bash
-$ git clone https://github.com/icedman/search-light
+$ git clone https://github.com/rwmicro/search-light
 ```
 - Use the `Makefile` to build and install
 ```bash 
@@ -61,4 +61,4 @@ Cmd - your Windows logo, or the command logo on mac. Linux also calls this the '
 
 ### Credits
 
-Blur-My-Shell for background blurring code.
+Originally created by [icedman](https://github.com/icedman/search-light). Blur-My-Shell for background blurring code.
