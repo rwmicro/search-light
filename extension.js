@@ -259,10 +259,12 @@ export default class SearchLightExt extends Extension {
     this._remove_events();
     delete Main.overview.searchLight;
 
+    this.container.destroy();
+    this.container = null;
+
     Main.layoutManager.removeChrome(this.mainContainer);
     this.mainContainer.destroy();
     this.mainContainer = null;
-    this.container = null;
   }
 
   _createIndicator() {
