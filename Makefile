@@ -1,4 +1,4 @@
-UUID = search-light@icedman.github.com
+UUID = search-light@rwmicro.github.io
 EXT_DIR = ~/.local/share/gnome-shell/extensions/$(UUID)
 PO_FILES = $(wildcard po/*.po)
 

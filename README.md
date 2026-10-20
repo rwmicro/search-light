@@ -13,7 +13,7 @@
 
 ![Contributors](https://img.shields.io/github/contributors/rwmicro/search-light?color=dark-green) ![Forks](https://img.shields.io/github/forks/rwmicro/search-light?style=social) ![Stargazers](https://img.shields.io/github/stars/rwmicro/search-light?style=social) ![Issues](https://img.shields.io/github/issues/rwmicro/search-light) ![License](https://img.shields.io/github/license/rwmicro/search-light) 
 
-![First Release](https://raw.githubusercontent.com/icedman/search-light/main/screenshots/Screenshot%20from%202022-11-03%2011-53-28.png)
+![First Release](https://raw.githubusercontent.com/rwmicro/search-light/main/screenshots/Screenshot%20from%202022-11-03%2011-53-28.png)
 
 
 This is a Gnome Shell extension that takes the apps search widget out of Overview. Like the macOS spotlight, or Alfred.
@@ -56,7 +56,7 @@ $ make
 
 From Gnome Extensions Repository
 
-Visit [repository](https://extensions.gnome.org/extension/5489/search-light/)
+The extension is being published on [extensions.gnome.org](https://extensions.gnome.org/) under the UUID `search-light@rwmicro.github.io`. Until then, use the manual installation above. The older listing (`extensions.gnome.org/extension/5489/search-light/`) belongs to the previous maintainers and is no longer updated.
 
 ### Keybinding
 
