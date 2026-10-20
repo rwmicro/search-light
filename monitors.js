@@ -39,8 +39,9 @@ export const MonitorsConfig = GObject.registerClass(
       );
 
       // Connecting to a D-Bus signal
-      this._monitorsConfigProxy.connectSignal('MonitorsChanged', () =>
-        this._updateResources(),
+      this._monitorsChangedId = this._monitorsConfigProxy.connectSignal(
+        'MonitorsChanged',
+        () => this._updateResources(),
       );
 
       this._primaryMonitor = null;
@@ -50,7 +51,17 @@ export const MonitorsConfig = GObject.registerClass(
       this._updateResources();
     }
 
+    destroy() {
+      if (this._monitorsChangedId) {
+        this._monitorsConfigProxy.disconnectSignal(this._monitorsChangedId);
+        this._monitorsChangedId = null;
+      }
+      this._monitorsConfigProxy = null;
+    }
+
     _updateResources() {
+      if (!this._monitorsConfigProxy) return;
+
       this._monitorsConfigProxy.GetCurrentStateRemote((resources, err) => {
         if (err) {
           logError(err);

@@ -4,7 +4,7 @@
 
 * Take over maintenance of the project
 * Support GNOME 48, 49 and 50 (Fedora 42 to 44)
-* Use `GioUnix.DesktopAppInfo` (`Gio.DesktopAppInfo` is deprecated)
+* Remove unused code (leftover Calculator provider stub) that used the deprecated `Gio.DesktopAppInfo`
 * Blurred background: call ImageMagick (`magick`, falling back to `convert`)
   without a shell, asynchronously, and write the result to the user cache
   directory instead of `/tmp`

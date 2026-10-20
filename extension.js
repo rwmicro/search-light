@@ -22,7 +22,6 @@ import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import Gio from 'gi://Gio';
-import GioUnix from 'gi://GioUnix';
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
@@ -201,20 +200,6 @@ export default class SearchLightExt extends Extension {
 
     Main.overview.searchLight = this;
 
-    let appInfo = GioUnix.DesktopAppInfo.new_from_filename(
-      `${this.path}/apps/org.gnome.Calculator.desktop`,
-    );
-
-    let _providers = [];
-
-    // deferred startup for providers
-    let idx = 0;
-    _providers.forEach((p) => {
-      this._loTimer.runOnce(() => {
-        p.initialize();
-      }, idx * 5000);
-    });
-
     this._loTimer.runOnce(() => {
       this._createIndicator();
     }, 1500);
@@ -236,6 +221,7 @@ export default class SearchLightExt extends Extension {
       if (this._indicator.get_parent()) {
         this._indicator.get_parent().remove_child(this._indicator);
       }
+      this._indicator.destroy();
       this._indicator = null;
     }
 
@@ -266,11 +252,17 @@ export default class SearchLightExt extends Extension {
       if (this._background.get_parent()) {
         this._background.get_parent().remove_child(this._background);
       }
+      this._background.destroy();
       this._background = null;
     }
 
+    this._remove_events();
+    delete Main.overview.searchLight;
+
     Main.layoutManager.removeChrome(this.mainContainer);
+    this.mainContainer.destroy();
     this.mainContainer = null;
+    this.container = null;
   }
 
   _createIndicator() {

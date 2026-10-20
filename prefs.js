@@ -157,9 +157,17 @@ export default class Preferences extends ExtensionPreferences {
 
     this._builder = builder;
     this.updateMonitors();
+
+    window.connect('close-request', () => {
+      this._monitorsConfig?.destroy();
+      this._monitorsConfig = null;
+      this._builder = null;
+      return false;
+    });
   }
 
   updateMonitors() {
+    if (!this._builder) return;
     let monitors = this._monitorsConfig.monitors;
     let count = monitors.length;
     let list = new Gtk.StringList();

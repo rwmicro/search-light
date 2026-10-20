@@ -34,7 +34,7 @@ publish: build mo
 	mkdir build
 	cp LICENSE README.md CHANGELOG.md metadata.json stylesheet.css ./build
 	cp *.js ./build
-	cp -r ui preferences effects apps schemas locale ./build
+	cp -r ui preferences effects schemas locale ./build
 	rm -f ./build/schemas/gschemas.compiled
 	rm -f ./*.zip
 	cd build ; \

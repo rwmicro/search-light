@@ -1,4 +1,3 @@
-import Gdk from 'gi://Gdk';
 import GLib from 'gi://GLib';
 
 export let PrefKeys = class {
@@ -138,14 +137,14 @@ export let PrefKeys = class {
           key.value = settings.get_value(name).deepUnpack();
           try {
             if (key.object) {
-              key.object.set_rgba(
-                new Gdk.RGBA({
-                  red: key.value[0],
-                  green: key.value[1],
-                  blue: key.value[2],
-                  alpha: key.value[3],
-                }),
-              );
+              // get_rgba() returns a copy, so no need to import Gdk here
+              // (GTK libraries must not be loaded in the shell process)
+              const rgba = key.object.get_rgba();
+              rgba.red = key.value[0];
+              rgba.green = key.value[1];
+              rgba.blue = key.value[2];
+              rgba.alpha = key.value[3];
+              key.object.set_rgba(rgba);
             }
           } catch (err) {
             //
