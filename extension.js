@@ -28,10 +28,13 @@ import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
 import St from 'gi://St';
 import Graphene from 'gi://Graphene';
-import { trySpawnCommandLine } from 'resource:///org/gnome/shell/misc/util.js';
 
 import { Timer } from './timer.js';
 import { Style } from './style.js';
+import {
+  generateBlurredBackground,
+  getBlurredBackgroundPath,
+} from './blur.js';
 
 import { TintEffect } from './effects/tint_effect.js';
 import { MonochromeEffect } from './effects/monochrome_effect.js';
@@ -121,7 +124,6 @@ export default class SearchLightExt extends Extension {
       if (key.options) {
         this[`${name}_options`] = key.options;
       }
-      // console.log(`${name} ${key.value}`);
     });
 
     this._desktopSettings = new Gio.Settings({
@@ -222,6 +224,8 @@ export default class SearchLightExt extends Extension {
   }
 
   disable() {
+    this._blurCancellable?.cancel();
+    this._blurCancellable = null;
     this._hiTimer?.shutdown();
     this._loTimer?.shutdown();
     this._hiTimer = null;
@@ -289,7 +293,7 @@ export default class SearchLightExt extends Extension {
       Main.panel._rightBox.insert_child_at_index(this._indicator, 0);
       this._indicator.visible = this.show_panel_icon;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 
@@ -326,20 +330,24 @@ export default class SearchLightExt extends Extension {
 
   _updateBlurredBackground() {
     this.desktop_background = this._desktopSettings.get_string('picture-uri');
-    
-    let uuid = GLib.get_user_name();
-    this.desktop_background_blurred = `/tmp/searchlight-${uuid}-bg-blurred.jpg`;
+    this.desktop_background_blurred = getBlurredBackgroundPath();
 
-    if (this.blur_background) {
-      //   let color = this.background_color || [0, 0, 0, 0.5];
-      //   let bg = this._desktopSettings.get_string('picture-uri');
-      //   let a = Math.floor(100 - color[3] * 100);
-      //   let rgb = this._style.hex(color);
-      // 	 let cmd = `convert -scale 10% -blur 0x2.5 -resize 200% -fill "${rgb}" -tint ${a} "${bg}" ${this.desktop_background_blurred}`;
-      let cmd = `convert -scale 10% -blur 0x2.5 -resize 200% "${this.desktop_background}" ${this.desktop_background_blurred}`;
-      console.log(cmd);
-      trySpawnCommandLine(cmd);
+    if (!this.blur_background) {
+      return;
     }
+
+    this._blurCancellable?.cancel();
+    const cancellable = new Gio.Cancellable();
+    this._blurCancellable = cancellable;
+    generateBlurredBackground(
+      this.desktop_background,
+      this.desktop_background_blurred,
+      cancellable,
+    ).then((done) => {
+      if (done && !cancellable.is_cancelled()) {
+        this._updateCss();
+      }
+    });
   }
 
   _updateWindowEffect() {
@@ -529,7 +537,6 @@ export default class SearchLightExt extends Extension {
           this._searchResults._content.first_child.first_child.child.child;
         if (grid.style_class == 'grid-search-results') {
           grid.get_children().forEach((c) => {
-            // console.log(`${c._name} ${c._draggable._dragState}`);
             if (
               c._draggable &&
               c._draggable._dragState == 1 /* DragState.DRAGGING */
@@ -540,7 +547,7 @@ export default class SearchLightExt extends Extension {
         }
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
     return result;
   }
@@ -574,7 +581,6 @@ export default class SearchLightExt extends Extension {
     // };
     // this.initial_height = padding[font_size] * this.scaleFactor;
     // this.initial_height += font_size * 2 * this.scaleFactor;
-    // console.log(`${this.initial_height} ${this._entry.height}`);
 
     this.initial_height = this._entry.height + 4 * this.scaleFactor;
 
@@ -906,7 +912,6 @@ export default class SearchLightExt extends Extension {
       styles.push(`.panel-status-indicator-icon {${ss.join(' ')}}`);
     }
 
-    // console.log(styles);
     this._style.build('custom-search-light', styles);
   }
 
@@ -987,7 +992,7 @@ export default class SearchLightExt extends Extension {
         },
       ]);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 

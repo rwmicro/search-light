@@ -22,7 +22,7 @@ export let Style = class {
       try {
         fn.delete(null);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
   }
@@ -38,7 +38,6 @@ export let Style = class {
     });
 
     if (this.style_contents[name] === content) {
-      // console.log('skip regeneration');
       return;
     }
 
@@ -59,8 +58,6 @@ export let Style = class {
     );
 
     theme.load_stylesheet(fn);
-
-    // console.log(content);
   }
 
   rgba(color) {
@@ -78,7 +75,6 @@ export let Style = class {
     if (g.length == 1) g += g;
     if (b.length == 1) b += b;
     let res = `#${r}${g}${b}`;
-    console.log(`${color} ${res}`);
     return res;
   }
 };

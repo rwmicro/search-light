@@ -1,0 +1,321 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: search-light\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 18:51+0200\n"
+"PO-Revision-Date: 2026-10-20 18:51+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: shortcuts.js:42
+msgid "New accelerator…"
+msgstr "Nouveau raccourci…"
+
+#: ui/accelerator.ui:5
+msgid "Press shortcut keys..."
+msgstr "Appuyez sur les touches du raccourci..."
+
+#: ui/appearance.ui:5 ui/appearance.ui:93
+msgid "Appearance"
+msgstr "Apparence"
+
+#: ui/appearance.ui:9
+msgid "Text"
+msgstr "Texte"
+
+#: ui/appearance.ui:13
+msgid "Text Color"
+msgstr "Couleur du texte"
+
+#: ui/appearance.ui:14
+msgid ""
+"Select text color. Make value completely transparent to auto-adapt to "
+"background color."
+msgstr ""
+"Choisir la couleur du texte. Rendre la valeur totalement transparente pour "
+"s'adapter automatiquement à la couleur d'arrière-plan."
+
+#: ui/appearance.ui:31
+msgid "Entry Text Color"
+msgstr "Couleur du texte saisi"
+
+#: ui/appearance.ui:32
+msgid "Select entry text color."
+msgstr "Choisir la couleur du texte saisi."
+
+#: ui/appearance.ui:48
+msgid "Text Size"
+msgstr "Taille du texte"
+
+#: ui/appearance.ui:49
+msgid "Set font size of search text and search result items."
+msgstr "Définir la taille de police du texte de recherche et des résultats."
+
+#: ui/appearance.ui:61
+msgid "Search Text Size"
+msgstr "Taille du texte de recherche"
+
+#: ui/appearance.ui:62
+msgid "Set font size for search input text."
+msgstr "Définir la taille de police du champ de recherche."
+
+#: ui/appearance.ui:74
+msgid "Topbar Icon Color"
+msgstr "Couleur de l'icône de la barre supérieure"
+
+#: ui/appearance.ui:75
+msgid "Select icon color."
+msgstr "Choisir la couleur de l'icône."
+
+#: ui/appearance.ui:97
+msgid "Width"
+msgstr "Largeur"
+
+#: ui/appearance.ui:98
+msgid "Set window width rescale."
+msgstr "Définir le facteur de largeur de la fenêtre."
+
+#: ui/appearance.ui:116
+msgid "Height"
+msgstr "Hauteur"
+
+#: ui/appearance.ui:117
+msgid "Set window height rescale."
+msgstr "Définir le facteur de hauteur de la fenêtre."
+
+#: ui/appearance.ui:135
+msgid "Border Thickness"
+msgstr "Épaisseur de la bordure"
+
+#: ui/appearance.ui:136
+msgid "Set border thickness."
+msgstr "Définir l'épaisseur de la bordure."
+
+#: ui/appearance.ui:148
+msgid "Border Radius"
+msgstr "Rayon de la bordure"
+
+#: ui/appearance.ui:149
+msgid "Set window border radius."
+msgstr "Définir le rayon des coins de la fenêtre."
+
+#: ui/appearance.ui:167
+msgid "Border Color"
+msgstr "Couleur de la bordure"
+
+#: ui/appearance.ui:168
+msgid "Select border color."
+msgstr "Choisir la couleur de la bordure."
+
+#: ui/appearance.ui:184
+msgid "Window Effect"
+msgstr "Effet de fenêtre"
+
+#: ui/appearance.ui:185
+msgid "Set window rendering effect."
+msgstr "Définir l'effet de rendu de la fenêtre."
+
+#: ui/appearance.ui:197
+msgid "Window Effect Color"
+msgstr "Couleur de l'effet de fenêtre"
+
+#: ui/appearance.ui:198
+msgid "Select window effect color."
+msgstr "Choisir la couleur de l'effet de fenêtre."
+
+#: ui/appearance.ui:214
+msgid "Animations"
+msgstr "Animations"
+
+#: ui/appearance.ui:215
+msgid "Enable fade-in and fade-out animations."
+msgstr "Activer les animations de fondu à l'ouverture et à la fermeture."
+
+#: ui/appearance.ui:226
+msgid "Animation Speed"
+msgstr "Vitesse d'animation"
+
+#: ui/appearance.ui:227
+msgid "Set the animation speed. Lower is faster."
+msgstr "Définir la vitesse d'animation. Une valeur basse est plus rapide."
+
+#: ui/appearance.ui:247
+msgid "Background"
+msgstr "Arrière-plan"
+
+#: ui/appearance.ui:251
+msgid "Background Color"
+msgstr "Couleur d'arrière-plan"
+
+#: ui/appearance.ui:252
+msgid "Set search window background color."
+msgstr "Définir la couleur d'arrière-plan de la fenêtre de recherche."
+
+#: ui/appearance.ui:268
+msgid "Background Blur"
+msgstr "Flou d'arrière-plan"
+
+#: ui/appearance.ui:269
+msgid ""
+"Add background blur with current wallpaper. Requires imagemagick installed."
+msgstr "Ajouter un flou d'arrière-plan à partir du fond d'écran actuel. Nécessite ImageMagick."
+
+#: ui/appearance.ui:281
+msgid "Sigma"
+msgstr "Sigma"
+
+#: ui/appearance.ui:282
+msgid "The intensity of the blur."
+msgstr "L'intensité du flou."
+
+#: ui/appearance.ui:301
+msgid "Brightness"
+msgstr "Luminosité"
+
+#: ui/appearance.ui:302
+msgid ""
+"The brightness of the blur effect, a high value might make the text harder "
+"to read."
+msgstr "La luminosité de l'effet de flou ; une valeur élevée peut rendre le texte plus difficile à lire."
+
+#: ui/appearance.ui:338 ui/appearance.ui:374
+msgid "None"
+msgstr "Aucun"
+
+#: ui/appearance.ui:345 ui/appearance.ui:354
+msgid "Default"
+msgstr "Par défaut"
+
+#: ui/appearance.ui:375
+msgid "Tint"
+msgstr "Teinte"
+
+#: ui/appearance.ui:376
+msgid "Monochrome"
+msgstr "Monochrome"
+
+#: ui/general.ui:5
+msgid "General"
+msgstr "Général"
+
+#: ui/general.ui:9
+msgid "Keybindings"
+msgstr "Raccourcis clavier"
+
+#: ui/general.ui:13
+msgid "Search"
+msgstr "Recherche"
+
+#: ui/general.ui:14
+msgid ""
+"Set keyboard shortcut to popup Search box. Backspace to clear.\n"
+"            "
+msgstr "Définir le raccourci clavier pour afficher la zone de recherche. Retour arrière pour effacer.\n            "
+
+#: ui/general.ui:28
+msgid "Secondary Accelerator"
+msgstr "Raccourci secondaire"
+
+#: ui/general.ui:29
+msgid ""
+"Set another shortcut. Backspace to clear.\n"
+"            "
+msgstr "Définir un autre raccourci. Retour arrière pour effacer.\n            "
+
+#: ui/general.ui:45
+msgid "Multi-Monitor"
+msgstr "Multi-écran"
+
+#: ui/general.ui:49
+msgid "Preferred Monitor"
+msgstr "Écran préféré"
+
+#: ui/general.ui:50
+msgid "Show search box on selected monitor."
+msgstr "Afficher la zone de recherche sur l'écran sélectionné."
+
+#: ui/general.ui:62
+msgid "Popup at Cursor Monitor"
+msgstr "Afficher sur l'écran du curseur"
+
+#: ui/general.ui:63
+msgid "Show search box at the monitor where cursor is located."
+msgstr "Afficher la zone de recherche sur l'écran où se trouve le curseur."
+
+#: ui/general.ui:77
+msgid "Providers"
+msgstr "Fournisseurs"
+
+#: ui/general.ui:81
+msgid "Currency Conversion"
+msgstr "Conversion de devises"
+
+#: ui/general.ui:82
+msgid "Enable currency conversion provider."
+msgstr "Activer le fournisseur de conversion de devises."
+
+#: ui/general.ui:93
+msgid "Unit Conversion"
+msgstr "Conversion d'unités"
+
+#: ui/general.ui:94
+msgid "Enable unit conversion provider."
+msgstr "Activer le fournisseur de conversion d'unités."
+
+#: ui/general.ui:107
+msgid "Others"
+msgstr "Autres"
+
+#: ui/general.ui:111
+msgid "Icon"
+msgstr "Icône"
+
+#: ui/general.ui:112
+msgid "Show search icon panel box."
+msgstr "Afficher l'icône de recherche dans la barre supérieure."
+
+#: ui/general.ui:126
+msgid "Primary Monitor"
+msgstr "Écran principal"
+
+#: ui/general.ui:127
+msgid "Secondary Monitor"
+msgstr "Écran secondaire"
+
+#: ui/general.ui:128
+msgid "Monitor 3"
+msgstr "Écran 3"
+
+#: ui/general.ui:129
+msgid "Monitor 4"
+msgstr "Écran 4"
+
+#: ui/general.ui:130
+msgid "Monitor 5"
+msgstr "Écran 5"
+
+#: ui/general.ui:131
+msgid "Monitor 6"
+msgstr "Écran 6"
+
+#: ui/menu.ui:6
+msgid "Project page"
+msgstr "Page du projet"
+
+#: ui/menu.ui:10
+msgid "Report a Bug"
+msgstr "Signaler un bug"
+
+#: ui/menu.ui:14
+msgid "License"
+msgstr "Licence"

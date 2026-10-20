@@ -1,3 +1,4 @@
 *.zip
 _*.js
 build
+locale/

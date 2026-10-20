@@ -26,6 +26,10 @@ This is a Gnome Shell extension that takes the apps search widget out of Overvie
 * Gnome 45 port is ready for testing
 * Gnome 44 and prior will be under g44 branch
 
+### Translations
+
+Translations live in `po/`. Run `make pot` to refresh the template and add a `po/<lang>.po` file to contribute a new language.
+
 ### Features
 
 * Popup search box

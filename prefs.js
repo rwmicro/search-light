@@ -19,10 +19,10 @@ import {
 export default class Preferences extends ExtensionPreferences {
   constructor(metadata) {
     super(metadata);
+    this.initTranslations(GETTEXT_DOMAIN);
     let iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
     let UIFolderPath = `${this.path}/ui`;
     iconTheme.add_search_path(`${UIFolderPath}/icons`);
-    // ExtensionUtils.initTranslations(GETTEXT_DOMAIN);
   }
 
   find(n, name) {
@@ -59,7 +59,6 @@ export default class Preferences extends ExtensionPreferences {
 
     // let gwc = this.find(window, 'GtkWindowControls');
     // gwc.visible = false;
-    // console.log(gwc);
 
     let headerbar = this.find(window, 'AdwHeaderBar');
     if (!headerbar) {
@@ -104,6 +103,7 @@ export default class Preferences extends ExtensionPreferences {
 
   fillPreferencesWindow(window) {
     let builder = new Gtk.Builder();
+    builder.set_translation_domain(GETTEXT_DOMAIN);
 
     let UIFolderPath = `${this.path}/ui`;
 

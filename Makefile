@@ -1,85 +1,60 @@
+UUID = search-light@icedman.github.com
+EXT_DIR = ~/.local/share/gnome-shell/extensions/$(UUID)
+PO_FILES = $(wildcard po/*.po)
+
 all: build install lint
 
-.PHONY: build install
+.PHONY: all build install publish install-zip pot mo test-prefs test-shell lint xml-lint pretty
 
 build:
 	glib-compile-schemas --strict --targetdir=schemas/ schemas
 
-install:
-	mkdir -p ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-	cp -R ./* ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
+# extract translatable strings into po/search-light.pot
+pot:
+	xgettext --from-code=UTF-8 --package-name=search-light -o po/search-light.pot \
+		--add-comments=TRANSLATORS \
+		-L JavaScript extension.js prefs.js shortcuts.js monitors.js
+	xgettext --from-code=UTF-8 -j -o po/search-light.pot -L Glade ui/*.ui
+	for po in $(PO_FILES); do msgmerge --update --backup=none $$po po/search-light.pot; done
 
-publish:
+# compile translations into locale/<lang>/LC_MESSAGES/search-light.mo
+mo:
+	for po in $(PO_FILES); do \
+		lang=$$(basename $$po .po); \
+		mkdir -p locale/$$lang/LC_MESSAGES; \
+		msgfmt $$po -o locale/$$lang/LC_MESSAGES/search-light.mo; \
+	done
+
+install: build mo
+	mkdir -p $(EXT_DIR)
+	cp -R ./* $(EXT_DIR)/
+
+publish: build mo
 	rm -rf build
 	mkdir build
-	cp LICENSE ./build
+	cp LICENSE README.md CHANGELOG.md metadata.json stylesheet.css ./build
 	cp *.js ./build
-	cp metadata.json ./build
-	cp stylesheet.css ./build
-	cp -r ui ./build
-	cp -r preferences ./build
-	cp -r effects ./build
-	cp -r apps ./build
-	cp README.md ./build
-	cp CHANGELOG.md ./build
-	cp -R schemas ./build
-	rm -rf ./build/_*.js
-	rm -rf ./build/utils.js
-	rm -rf ./build/drawing.js
-	rm -rf ./build/chamfer.js
-	rm -rf ./build/imports_*
-	rm -rf ./*.zip
+	cp -r ui preferences effects apps schemas locale ./build
+	rm -f ./build/schemas/gschemas.compiled
+	rm -f ./*.zip
 	cd build ; \
-	zip -qr ../search-light@icedman.github.com.zip .
+	zip -qr ../$(UUID).zip .
 
 install-zip: publish
 	echo "installing zip..."
-	rm -rf ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com
-	mkdir -p ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-	unzip -q search-light@icedman.github.com.zip -d ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-
-g44: build
-	rm -rf ./build
-	mkdir -p ./build
-	mkdir -p ./build/apps
-	mkdir -p ./build/preferences
-	python3 ./transpile.py
-	rm -rf ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-	mkdir -p ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-	cp -R ./schemas ./build
-	cp -R ./ui ./build
-	cp ./apps/*.desktop ./build/apps
-	# cp ./effects/*.glsl ./build/effects
-	cp ./LICENSE* ./build
-	cp ./CHANGELOG* ./build
-	cp ./README* ./build
-	cp ./stylesheet.css ./build
-	cp -r ./build/* ~/.local/share/gnome-shell/extensions/search-light@icedman.github.com/
-
-publish-g44: g44
-	echo "publishing..."
-	cd build ; \
-	zip -qr ../search-light@icedman.github.com.zip .
-
-test-prefs-g44: g44
-	gnome-extensions prefs search-light@icedman.github.com
-
-test-shell-g44: g44
-	env GNOME_SHELL_SLOWDOWN_FACTOR=2 \
-		MUTTER_DEBUG_DUMMY_MODE_SPECS=1200x800 \
-	 	MUTTER_DEBUG_DUMMY_MONITOR_SCALES=1 \
-		dbus-run-session -- gnome-shell --devkit --wayland
-	rm /run/user/1000/gnome-shell-disable-extensions
+	rm -rf $(EXT_DIR)
+	mkdir -p $(EXT_DIR)
+	unzip -q $(UUID).zip -d $(EXT_DIR)
 
 test-prefs:
-	gnome-extensions prefs search-light@icedman.github.com
+	gnome-extensions prefs $(UUID)
 
 test-shell: install
 	env GNOME_SHELL_SLOWDOWN_FACTOR=1 \
 		MUTTER_DEBUG_DUMMY_MODE_SPECS=1280x800 \
-	 	MUTTER_DEBUG_DUMMY_MONITOR_SCALES=1.5 \
+		MUTTER_DEBUG_DUMMY_MONITOR_SCALES=1.5 \
 		dbus-run-session -- gnome-shell --devkit --wayland
-	rm /run/user/1000/gnome-shell-disable-extensions
+	rm -f /run/user/$$(id -u)/gnome-shell-disable-extensions
 
 lint:
 	eslint ./

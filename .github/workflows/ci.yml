@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y libglib2.0-bin libxml2-utils gettext
+      - name: Lint JavaScript
+        run: npx --yes eslint@8 ./
+      - name: Validate GtkBuilder files
+        run: find ui -name '*.ui' -print0 | xargs -0 xmllint --noout
+      - name: Compile schemas
+        run: glib-compile-schemas --strict --dry-run schemas
+      - name: Check translations
+        run: for po in po/*.po; do msgfmt --check --statistics -o /dev/null "$po"; done
+      - name: Build package
+        run: make publish
+      - uses: actions/upload-artifact@v4
+        with:
+          name: search-light
+          path: '*.zip'

@@ -109,7 +109,6 @@ export let ShortcutSettingWidget = class extends Gtk.Button {
       );
     }
 
-    console.log('saved new shortcut');
 
     this.emit('changed', this.shortcut);
     this._settings.set_strv(this._key, [this.shortcut]);

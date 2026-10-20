@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 18:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: shortcuts.js:42
+msgid "New accelerator…"
+msgstr ""
+
+#: ui/accelerator.ui:5
+msgid "Press shortcut keys..."
+msgstr ""
+
+#: ui/appearance.ui:5 ui/appearance.ui:93
+msgid "Appearance"
+msgstr ""
+
+#: ui/appearance.ui:9
+msgid "Text"
+msgstr ""
+
+#: ui/appearance.ui:13
+msgid "Text Color"
+msgstr ""
+
+#: ui/appearance.ui:14
+msgid ""
+"Select text color. Make value completely transparent to auto-adapt to "
+"background color."
+msgstr ""
+
+#: ui/appearance.ui:31
+msgid "Entry Text Color"
+msgstr ""
+
+#: ui/appearance.ui:32
+msgid "Select entry text color."
+msgstr ""
+
+#: ui/appearance.ui:48
+msgid "Text Size"
+msgstr ""
+
+#: ui/appearance.ui:49
+msgid "Set font size of search text and search result items."
+msgstr ""
+
+#: ui/appearance.ui:61
+msgid "Search Text Size"
+msgstr ""
+
+#: ui/appearance.ui:62
+msgid "Set font size for search input text."
+msgstr ""
+
+#: ui/appearance.ui:74
+msgid "Topbar Icon Color"
+msgstr ""
+
+#: ui/appearance.ui:75
+msgid "Select icon color."
+msgstr ""
+
+#: ui/appearance.ui:97
+msgid "Width"
+msgstr ""
+
+#: ui/appearance.ui:98
+msgid "Set window width rescale."
+msgstr ""
+
+#: ui/appearance.ui:116
+msgid "Height"
+msgstr ""
+
+#: ui/appearance.ui:117
+msgid "Set window height rescale."
+msgstr ""
+
+#: ui/appearance.ui:135
+msgid "Border Thickness"
+msgstr ""
+
+#: ui/appearance.ui:136
+msgid "Set border thickness."
+msgstr ""
+
+#: ui/appearance.ui:148
+msgid "Border Radius"
+msgstr ""
+
+#: ui/appearance.ui:149
+msgid "Set window border radius."
+msgstr ""
+
+#: ui/appearance.ui:167
+msgid "Border Color"
+msgstr ""
+
+#: ui/appearance.ui:168
+msgid "Select border color."
+msgstr ""
+
+#: ui/appearance.ui:184
+msgid "Window Effect"
+msgstr ""
+
+#: ui/appearance.ui:185
+msgid "Set window rendering effect."
+msgstr ""
+
+#: ui/appearance.ui:197
+msgid "Window Effect Color"
+msgstr ""
+
+#: ui/appearance.ui:198
+msgid "Select window effect color."
+msgstr ""
+
+#: ui/appearance.ui:214
+msgid "Animations"
+msgstr ""
+
+#: ui/appearance.ui:215
+msgid "Enable fade-in and fade-out animations."
+msgstr ""
+
+#: ui/appearance.ui:226
+msgid "Animation Speed"
+msgstr ""
+
+#: ui/appearance.ui:227
+msgid "Set the animation speed. Lower is faster."
+msgstr ""
+
+#: ui/appearance.ui:247
+msgid "Background"
+msgstr ""
+
+#: ui/appearance.ui:251
+msgid "Background Color"
+msgstr ""
+
+#: ui/appearance.ui:252
+msgid "Set search window background color."
+msgstr ""
+
+#: ui/appearance.ui:268
+msgid "Background Blur"
+msgstr ""
+
+#: ui/appearance.ui:269
+msgid ""
+"Add background blur with current wallpaper. Requires imagemagick installed."
+msgstr ""
+
+#: ui/appearance.ui:281
+msgid "Sigma"
+msgstr ""
+
+#: ui/appearance.ui:282
+msgid "The intensity of the blur."
+msgstr ""
+
+#: ui/appearance.ui:301
+msgid "Brightness"
+msgstr ""
+
+#: ui/appearance.ui:302
+msgid ""
+"The brightness of the blur effect, a high value might make the text harder "
+"to read."
+msgstr ""
+
+#: ui/appearance.ui:338 ui/appearance.ui:374
+msgid "None"
+msgstr ""
+
+#: ui/appearance.ui:345 ui/appearance.ui:354
+msgid "Default"
+msgstr ""
+
+#: ui/appearance.ui:375
+msgid "Tint"
+msgstr ""
+
+#: ui/appearance.ui:376
+msgid "Monochrome"
+msgstr ""
+
+#: ui/general.ui:5
+msgid "General"
+msgstr ""
+
+#: ui/general.ui:9
+msgid "Keybindings"
+msgstr ""
+
+#: ui/general.ui:13
+msgid "Search"
+msgstr ""
+
+#: ui/general.ui:14
+msgid ""
+"Set keyboard shortcut to popup Search box. Backspace to clear.\n"
+"            "
+msgstr ""
+
+#: ui/general.ui:28
+msgid "Secondary Accelerator"
+msgstr ""
+
+#: ui/general.ui:29
+msgid ""
+"Set another shortcut. Backspace to clear.\n"
+"            "
+msgstr ""
+
+#: ui/general.ui:45
+msgid "Multi-Monitor"
+msgstr ""
+
+#: ui/general.ui:49
+msgid "Preferred Monitor"
+msgstr ""
+
+#: ui/general.ui:50
+msgid "Show search box on selected monitor."
+msgstr ""
+
+#: ui/general.ui:62
+msgid "Popup at Cursor Monitor"
+msgstr ""
+
+#: ui/general.ui:63
+msgid "Show search box at the monitor where cursor is located."
+msgstr ""
+
+#: ui/general.ui:77
+msgid "Providers"
+msgstr ""
+
+#: ui/general.ui:81
+msgid "Currency Conversion"
+msgstr ""
+
+#: ui/general.ui:82
+msgid "Enable currency conversion provider."
+msgstr ""
+
+#: ui/general.ui:93
+msgid "Unit Conversion"
+msgstr ""
+
+#: ui/general.ui:94
+msgid "Enable unit conversion provider."
+msgstr ""
+
+#: ui/general.ui:107
+msgid "Others"
+msgstr ""
+
+#: ui/general.ui:111
+msgid "Icon"
+msgstr ""
+
+#: ui/general.ui:112
+msgid "Show search icon panel box."
+msgstr ""
+
+#: ui/general.ui:126
+msgid "Primary Monitor"
+msgstr ""
+
+#: ui/general.ui:127
+msgid "Secondary Monitor"
+msgstr ""
+
+#: ui/general.ui:128
+msgid "Monitor 3"
+msgstr ""
+
+#: ui/general.ui:129
+msgid "Monitor 4"
+msgstr ""
+
+#: ui/general.ui:130
+msgid "Monitor 5"
+msgstr ""
+
+#: ui/general.ui:131
+msgid "Monitor 6"
+msgstr ""
+
+#: ui/menu.ui:6
+msgid "Project page"
+msgstr ""
+
+#: ui/menu.ui:10
+msgid "Report a Bug"
+msgstr ""
+
+#: ui/menu.ui:14
+msgid "License"
+msgstr ""

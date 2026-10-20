@@ -1,3 +1,14 @@
-extends:
- - ./lint/eslintrc-gjs.yml
- - ./lint/eslintrc-shell.yml
+root: true
+extends: eslint:recommended
+env:
+  es2022: true
+parserOptions:
+  sourceType: module
+ignorePatterns:
+  - build/
+  - node_modules/
+rules:
+  # GJS/GNOME Shell globals (global, imports, print, ...) are not known to eslint
+  no-undef: off
+  no-unused-vars: warn
+  no-empty: warn
