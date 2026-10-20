@@ -22,6 +22,7 @@ import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import Gio from 'gi://Gio';
+import GioUnix from 'gi://GioUnix';
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
@@ -198,7 +199,7 @@ export default class SearchLightExt extends Extension {
 
     Main.overview.searchLight = this;
 
-    let appInfo = Gio.DesktopAppInfo.new_from_filename(
+    let appInfo = GioUnix.DesktopAppInfo.new_from_filename(
       `${this.path}/apps/org.gnome.Calculator.desktop`,
     );
 
